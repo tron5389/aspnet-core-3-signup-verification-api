@@ -1,3 +1,4 @@
+using WebApi.Models.RealEstate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using WebApi.Entities;
@@ -7,6 +8,9 @@ namespace WebApi.Helpers
     public class DataContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<RentalKPI> RentalKPIs { get; set; }
+
+
         
         private readonly IConfiguration Configuration;
 
@@ -18,7 +22,7 @@ namespace WebApi.Helpers
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // connect to sqlite database
-            options.UseSqlite(Configuration.GetConnectionString("WebApiDatabase"));
+            options.UseSqlServer(Configuration.GetConnectionString("WebApiDatabase"));
         }
     }
 }

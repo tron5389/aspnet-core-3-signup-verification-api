@@ -35,6 +35,8 @@ namespace WebApi
             // configure DI for application services
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<RealEstateService>();
+
         }
 
         // configure the HTTP request pipeline
